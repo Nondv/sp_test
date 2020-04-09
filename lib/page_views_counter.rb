@@ -1,10 +1,9 @@
 require_relative 'log_entry_parser'
 
 class PageViewsCounter
-  include LogEntryParser
-
-  def initialize(string_counter)
+  def initialize(string_counter, log_entry_parser)
     @string_counter = string_counter
+    @log_entry_parser = log_entry_parser
   end
 
   def add_log_entry(log_entry)
@@ -29,10 +28,11 @@ class PageViewsCounter
 
   private
 
-  attr_reader :string_counter
+  attr_reader :string_counter, :log_entry_parser
 
   def log_entry_to_key(log_entry)
-    entry_hash = parse_log_entry(log_entry)
+    entry_hash = log_entry_parser.parse_log_entry(log_entry)
+
     "#{entry_hash[:path]} #{entry_hash[:ip]}"
   end
 

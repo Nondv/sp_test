@@ -3,8 +3,9 @@
 require_relative '../lib/page_views_counter'
 require_relative '../lib/string_counter'
 require_relative '../lib/ordered_hash_iterator'
+require_relative '../lib/log_entry_parser'
 
-counter = PageViewsCounter.new(StringCounter.new)
+counter = PageViewsCounter.new(StringCounter.new, LogEntryParser)
 $<.each_line { |line| counter.add_log_entry(line) }
 
 hash_iterator = OrderedHashIterator.new(->((_, v1), (_, v2)) { v2 <=> v1 })
