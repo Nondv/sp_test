@@ -8,7 +8,7 @@ class PageViewsCounter
   end
 
   def add_log_entry(log_entry)
-    string_counter.add(log_entry)
+    string_counter.add(log_entry_to_key(log_entry))
   end
 
   def pages

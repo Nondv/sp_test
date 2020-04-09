@@ -36,6 +36,7 @@ RSpec.describe LogEntryParser do
     end
 
     pending 'raises an error if path is a url, not a path?'
+    pending 'raises an error if not IP?'
     pending 'raises an error if multiline?'
   end
 end
