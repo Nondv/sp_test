@@ -11,10 +11,6 @@ class PageViewsCounter
     string_counter.add(log_entry_to_key(log_entry))
   end
 
-  def pages
-    string_counter.keys.map { |k| key_to_page(k) }.uniq
-  end
-
   def total_views_by_page
     string_counter.keys.each_with_object({}) do |key, result|
       page = key_to_page(key)
