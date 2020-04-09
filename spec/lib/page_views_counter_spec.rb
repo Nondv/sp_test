@@ -1,9 +1,10 @@
 require 'page_views_counter'
 require 'string_counter'
+require 'log_entry_parser'
 
 RSpec.describe PageViewsCounter do
   def init
-    described_class.new(StringCounter.new)
+    described_class.new(StringCounter.new, LogEntryParser)
   end
 
   it '#total_views_by_page' do

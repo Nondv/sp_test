@@ -1,5 +1,3 @@
-require_relative 'log_entry_parser'
-
 class PageViewsCounter
   def initialize(string_counter, log_entry_parser)
     @string_counter = string_counter
